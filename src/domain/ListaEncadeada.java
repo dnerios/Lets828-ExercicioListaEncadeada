@@ -44,7 +44,24 @@ public class ListaEncadeada {
     //Implementar um método para remover da lista um elemento informado.
     // Exemplo: Em uma lista com [1,5,20,3,15], quero conseguir remover o elemento "20"
     // A lista deverá continuar sendo impressa, excluindo apenas o elemento informado.
-
+    public void remover(int elemento){
+        Node noTemp = this.primeiro;
+        Node noAnt = null;
+        if (primeiro.getElemento() == elemento){
+            primeiro = primeiro.getProximo();
+        } else {
+            while ((noTemp != null) && (noTemp.getElemento() != elemento)){
+                noAnt = noTemp;
+                noTemp = noTemp.getProximo();
+            }
+            if (noTemp != null){
+                noAnt.setProximo(noTemp.getProximo());
+            }
+            if (noTemp == ultimo){
+                ultimo = noAnt;
+            }
+        }
+    }
     //REMOVER NODE
 
     public int contarNodes() {
